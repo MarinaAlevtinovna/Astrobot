@@ -1,0 +1,1 @@
+worker: @Balabolko_bot.py

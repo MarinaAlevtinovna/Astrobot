@@ -3,11 +3,13 @@ import random
 import time
 import datetime
 import threading
+# import os
+# import sys
 
-bot = telebot.TeleBot('7176669906:AAGzv-m7_QJ-MkwO0ZApzeFv0QVtHS4QCnY')
+bot = telebot.TeleBot('7176669906:AAHHEIhImtD4KOny0LGzkzJO-m9lbL81hvE')
 
 def load_facts_from_file():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/facts.txt', 'r', encoding='utf-8') as file:
+    with open('facts.txt', 'r', encoding='utf-8') as file:
         facts = file.readlines()
     return [fact.strip() for fact in facts]
 
@@ -36,7 +38,7 @@ def fact_message(message):
 
 def send_reminders(chat_id):
     global last_sent_time
-    time_send = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:36', '18:00', '19:05', '20:00']
+    time_send = ['12:00']
     while True:
         now = datetime.datetime.now().strftime('%H:%M')
         if now in time_send and now != last_sent_time:
@@ -54,7 +56,7 @@ def get_horoscope(message, fact=None):
                           '/sagittarius - Стрелец\n''/capricorn - Козерог\n''/aquarius - Водолей\n''/pisces - Рыбы\n')
 
 def load_horoscope_from_aries():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Aries.txt', 'r', encoding='utf-8') as file:
+    with open('Aries.txt', 'r', encoding='utf-8') as file:
         aries_horoscopes = file.readlines()
     return [aries_horoscope.strip() for aries_horoscope in aries_horoscopes]
 
@@ -69,7 +71,7 @@ def choice_aries(message):
     bot.reply_to(message, f'{aries_horoscope}')
 
 def load_horoscope_from_taurus():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Taurus.txt', 'r', encoding='utf-8') as file:
+    with open('Taurus.txt', 'r', encoding='utf-8') as file:
         taurus_horoscopes = file.readlines()
     return [taurus_horoscope.strip() for taurus_horoscope in taurus_horoscopes]
 
@@ -84,7 +86,7 @@ def choice_taurus(message):
     bot.reply_to(message, f'{taurus_horoscope}')
 
 def load_horoscope_from_gemini():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Gemini.txt', 'r', encoding='utf-8') as file:
+    with open('Gemini.txt', 'r', encoding='utf-8') as file:
         gemini_horoscopes = file.readlines()
     return [gemini_horoscope.strip() for gemini_horoscope in gemini_horoscopes]
 
@@ -99,7 +101,7 @@ def choice_gemini(message):
     bot.reply_to(message, f'{gemini_horoscope}')
 
 def load_horoscope_from_cancer():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Cancer.txt', 'r', encoding='utf-8') as file:
+    with open('Cancer.txt', 'r', encoding='utf-8') as file:
         cancer_horoscopes = file.readlines()
     return [cancer_horoscope.strip() for cancer_horoscope in cancer_horoscopes]
 
@@ -114,7 +116,7 @@ def choice_cancer(message):
     bot.reply_to(message, f'{cancer_horoscope}')
 
 def load_horoscope_from_leo():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Leo.txt', 'r', encoding='utf-8') as file:
+    with open('Leo.txt', 'r', encoding='utf-8') as file:
         leo_horoscopes = file.readlines()
     return [leo_horoscope.strip() for leo_horoscope in leo_horoscopes]
 
@@ -129,7 +131,7 @@ def choice_leo(message):
     bot.reply_to(message, f'{leo_horoscope}')
 
 def load_horoscope_from_virgo():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Virgo.txt', 'r', encoding='utf-8') as file:
+    with open('Virgo.txt', 'r', encoding='utf-8') as file:
         virgo_horoscopes = file.readlines()
     return [virgo_horoscope.strip() for virgo_horoscope in virgo_horoscopes]
 
@@ -144,7 +146,7 @@ def choice_virgo(message):
     bot.reply_to(message, f'{virgo_horoscope}')
 
 def load_horoscope_from_libra():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Libra.txt', 'r', encoding='utf-8') as file:
+    with open('Libra.txt', 'r', encoding='utf-8') as file:
         libra_horoscopes = file.readlines()
     return [libra_horoscope.strip() for libra_horoscope in libra_horoscopes]
 
@@ -159,7 +161,7 @@ def choice_libra(message):
     bot.reply_to(message, f'{libra_horoscope}')
 
 def load_horoscope_from_scorpio():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Scorpio.txt', 'r', encoding='utf-8') as file:
+    with open('Scorpio.txt', 'r', encoding='utf-8') as file:
         scorpio_horoscopes = file.readlines()
     return [scorpio_horoscope.strip() for scorpio_horoscope in scorpio_horoscopes]
 
@@ -174,7 +176,7 @@ def choice_scorpio(message):
     bot.reply_to(message, f'{scorpio_horoscope}')
 
 def load_horoscope_from_sagittarius():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Sagittarius.txt', 'r', encoding='utf-8') as file:
+    with open('Sagittarius.txt', 'r', encoding='utf-8') as file:
         sagittarius_horoscopes = file.readlines()
     return [sagittarius_horoscope.strip() for sagittarius_horoscope in sagittarius_horoscopes]
 
@@ -189,7 +191,7 @@ def choice_sagittarius(message):
     bot.reply_to(message, f'{sagittarius_horoscope}')
 
 def load_horoscope_from_capricorn():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Capricorn.txt', 'r', encoding='utf-8') as file:
+    with open('Capricorn.txt', 'r', encoding='utf-8') as file:
         capricorn_horoscopes = file.readlines()
     return [capricorn_horoscope.strip() for capricorn_horoscope in capricorn_horoscopes]
 
@@ -204,7 +206,7 @@ def choice_capricorn(message):
     bot.reply_to(message, f'{capricorn_horoscope}')
 
 def load_horoscope_from_aquarius():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Aquarius.txt', 'r', encoding='utf-8') as file:
+    with open('Aquarius.txt', 'r', encoding='utf-8') as file:
         aquarius_horoscopes = file.readlines()
     return [aquarius_horoscope.strip() for aquarius_horoscope in aquarius_horoscopes]
 
@@ -219,7 +221,7 @@ def choice_aquarius(message):
     bot.reply_to(message, f'{aquarius_horoscope}')
 
 def load_horoscope_from_pisces():
-    with open('../../../../PycharmProjects/Telegramm_Bot_project/Pisces.txt', 'r', encoding='utf-8') as file:
+    with open('Pisces.txt', 'r', encoding='utf-8') as file:
         pisces_horoscopes = file.readlines()
     return [pisces_horoscope.strip() for pisces_horoscope in pisces_horoscopes]
 
@@ -232,5 +234,21 @@ def generate_random_horoscope_pisces():
 def choice_pisces(message):
     pisces_horoscope = generate_random_horoscope_pisces()
     bot.reply_to(message, f'{pisces_horoscope}')
+
+# lock_file_path = "C:/Users/myssy/PycharmProjects/Telegramm_Bot_project/your_bot.lock"
+#
+# if os.path.exists(lock_file_path):
+#     print("Бот уже запущен!")
+#     sys.exit()
+#
+# with open(lock_file_path, "w") as lock_file:
+#     lock_file.write(str(os.getpid()))
+#
+# try:
+#     # Ваш код для запуска бота
+#     bot.polling(none_stop=True)
+#
+# finally:
+#     os.remove(lock_file_path)
 
 bot.polling(none_stop=True)
