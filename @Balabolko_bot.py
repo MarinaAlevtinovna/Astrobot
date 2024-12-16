@@ -5,7 +5,7 @@ import datetime
 import threading
 from config import TOKEN
 
-bot = telebot.TeleBot(token = TOKEN) #Вставить свой токен
+bot = telebot.TeleBot(token=TOKEN) #Вставить свой токен
 
 def load_facts_from_file():
     with open('facts.txt', 'r', encoding='utf-8') as file:
@@ -37,7 +37,7 @@ def fact_message(message):
 
 def send_reminders(chat_id):
     global last_sent_time
-    time_send = ['12:00']
+    time_send = ['10:00']
     while True:
         now = datetime.datetime.now().strftime('%H:%M')
         if now in time_send and now != last_sent_time:
