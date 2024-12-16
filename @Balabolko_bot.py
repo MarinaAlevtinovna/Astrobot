@@ -3,10 +3,9 @@ import random
 import time
 import datetime
 import threading
-# import os
-# import sys
+from config import TOKEN
 
-bot = telebot.TeleBot('7176669906:AAHHEIhImtD4KOny0LGzkzJO-m9lbL81hvE')
+bot = telebot.TeleBot(token = TOKEN)
 
 def load_facts_from_file():
     with open('facts.txt', 'r', encoding='utf-8') as file:
