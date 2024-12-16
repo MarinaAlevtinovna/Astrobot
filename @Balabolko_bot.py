@@ -5,7 +5,7 @@ import datetime
 import threading
 from config import TOKEN
 
-bot = telebot.TeleBot(token = TOKEN)
+bot = telebot.TeleBot(token = TOKEN) #Вставить свой токен
 
 def load_facts_from_file():
     with open('facts.txt', 'r', encoding='utf-8') as file:
@@ -234,20 +234,5 @@ def choice_pisces(message):
     pisces_horoscope = generate_random_horoscope_pisces()
     bot.reply_to(message, f'{pisces_horoscope}')
 
-# lock_file_path = "C:/Users/myssy/PycharmProjects/Telegramm_Bot_project/your_bot.lock"
-#
-# if os.path.exists(lock_file_path):
-#     print("Бот уже запущен!")
-#     sys.exit()
-#
-# with open(lock_file_path, "w") as lock_file:
-#     lock_file.write(str(os.getpid()))
-#
-# try:
-#     # Ваш код для запуска бота
-#     bot.polling(none_stop=True)
-#
-# finally:
-#     os.remove(lock_file_path)
 
 bot.polling(none_stop=True)
